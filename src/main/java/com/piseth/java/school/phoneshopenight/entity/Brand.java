@@ -19,5 +19,5 @@ public class Brand {
 	private Integer id;
 	
 	@Column(name = "brand_name")
-	private String name;
+	private String name;	
 }
