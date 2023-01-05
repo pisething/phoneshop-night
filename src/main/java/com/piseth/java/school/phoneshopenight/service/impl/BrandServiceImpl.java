@@ -16,10 +16,13 @@ import com.piseth.java.school.phoneshopenight.service.util.PageUtil;
 import com.piseth.java.school.phoneshopenight.spec.BrandFilter;
 import com.piseth.java.school.phoneshopenight.spec.BrandSpec;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BrandServiceImpl implements BrandService{
 	@Autowired
-	private BrandRepository brandRepository;
+	private final BrandRepository brandRepository;
 
 	@Override
 	public Brand create(Brand brand) {
