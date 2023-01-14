@@ -1,13 +1,11 @@
 spring:
   datasource:
-   url: jdbc:h2:mem:testdb
-   username: sa
-   password: 
+    url: jdbc:postgresql://localhost:5433/phoneshop_night
+    username: phoneshop_night
+    password: phoneshop123
   jpa:
-   properties:
     hibernate:
-    dialect: org.hibernate.dialect.H2Dialect
-   hibernate:
-    ddl-auto: create
-  h2:
-    console:      enabled: true
+      ddl-auto: update
+    properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
