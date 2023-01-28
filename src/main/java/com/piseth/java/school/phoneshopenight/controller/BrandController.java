@@ -2,9 +2,7 @@ package com.piseth.java.school.phoneshopenight.controller;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,17 +15,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.piseth.java.school.phoneshopenight.dto.BrandDTO;
+import com.piseth.java.school.phoneshopenight.dto.ModelDTO;
 import com.piseth.java.school.phoneshopenight.dto.PageDTO;
 import com.piseth.java.school.phoneshopenight.entity.Brand;
+import com.piseth.java.school.phoneshopenight.entity.Model;
 import com.piseth.java.school.phoneshopenight.mapper.BrandMapper;
+import com.piseth.java.school.phoneshopenight.mapper.ModelEntityMapper;
 import com.piseth.java.school.phoneshopenight.service.BrandService;
+import com.piseth.java.school.phoneshopenight.service.ModelService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("brands")
 public class BrandController {
 	
-	@Autowired
-	private BrandService brandService;
+	private final BrandService brandService;
+	private final ModelService modelService;
+	private final ModelEntityMapper modelMapper;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<?> create(@RequestBody BrandDTO brandDTO) {
@@ -63,6 +69,15 @@ public class BrandController {
 		*/
 		return ResponseEntity.ok(pageDTO);
 		
+	}
+	
+	@GetMapping("{id}/models")
+	public ResponseEntity<?> getModelsByBrand(@PathVariable("id") Integer brandId){
+		List<Model> brands = modelService.getByBrand(brandId);
+		List<ModelDTO> list = brands.stream()
+			.map(modelMapper::toModelDTO)
+			.toList();
+		return ResponseEntity.ok(list);
 	}
 	
 	
