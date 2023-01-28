@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.piseth.java.school.phoneshopenight.dto.ModelDTO;
 import com.piseth.java.school.phoneshopenight.entity.Model;
-import com.piseth.java.school.phoneshopenight.mapper.ModelMapper;
+import com.piseth.java.school.phoneshopenight.mapper.ModelEntityMapper;
 import com.piseth.java.school.phoneshopenight.service.ModelService;
 
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/models")
 public class ModelController {
 	private final ModelService modelService;
-	private final ModelMapper modelMapper;
+	private final ModelEntityMapper modelMapper;
 	
 
 	@PostMapping
