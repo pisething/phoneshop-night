@@ -45,7 +45,8 @@ public class BrandServiceImpl implements BrandService{
 	@Override
 	public List<Brand> getBrands(String name) {
 		//return brandRepository.findByNameLike("%"+name + "%");
-		return brandRepository.findByNameContaining(name);
+		//return brandRepository.findByNameContaining(name);
+		return null;
 	}
 	
 	/*
