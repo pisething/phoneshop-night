@@ -9,5 +9,4 @@ import com.piseth.java.school.phoneshopenight.entity.Model;
 public interface ModelRepository extends JpaRepository<Model, Integer>{
 	List<Model> findByBrandId(Integer brandId);
 	
-	List<Model> findByBrandIdAndNameStartWith(Integer brandId, String name);
 }
