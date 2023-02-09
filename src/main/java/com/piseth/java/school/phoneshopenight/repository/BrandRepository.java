@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.piseth.java.school.phoneshopenight.entity.Brand;
 
 @Repository
-public interface BrandRepository extends JpaRepository<Brand, Integer>, JpaSpecificationExecutor<Brand>
+public interface BrandRepository extends JpaRepository<Brand, Long>, JpaSpecificationExecutor<Brand>
 {
 	List<Brand> findByNameLike(String name);
 	List<Brand> findByNameContaining(String name);
