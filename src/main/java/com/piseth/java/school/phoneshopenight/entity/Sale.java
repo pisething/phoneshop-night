@@ -1,5 +1,7 @@
 package com.piseth.java.school.phoneshopenight.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +13,13 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "brands")
-public class Brand {
+@Table(name = "sales")
+public class Sale {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "brand_id")
+	@Column(name = "sale_id")
 	private Long id;
 	
-	@Column(name = "brand_name")
-	private String name;	
+	@Column(name = "sold_date")
+	private LocalDateTime soldDate;	
 }
