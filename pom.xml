@@ -65,6 +65,14 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -107,13 +115,13 @@
 				</configuration>
 			</plugin>
 
-				<plugin>
-					<groupId>org.liquibase</groupId>
-					<artifactId>liquibase-maven-plugin</artifactId>
-					<configuration>
-						<propertyFile>src/main/resources/liquibase.properties</propertyFile>
-					</configuration>
-				</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<configuration>
+					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
