@@ -1,6 +1,6 @@
 package com.piseth.java.school.phoneshopenight.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,5 +21,5 @@ public class Sale {
 	private Long id;
 	
 	@Column(name = "sold_date")
-	private LocalDateTime soldDate;	
+	private LocalDate soldDate;	
 }
