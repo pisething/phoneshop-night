@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.piseth.java.school.phoneshopenight.dto.ProductReportDTO;
+import com.piseth.java.school.phoneshopenight.dto.report.ExpenseReportDTO;
 import com.piseth.java.school.phoneshopenight.projection.ProductSold;
 import com.piseth.java.school.phoneshopenight.service.ReportService;
 
@@ -36,6 +37,13 @@ public class ReportController {
 			@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable("endDate") LocalDate endDate) {
 		List<ProductReportDTO> productSolds = reportService.getProductReport(startDate, endDate);
 		return ResponseEntity.ok(productSolds);
+	}
+	
+	@GetMapping("expense/{startDate}/{endDate}")
+	public ResponseEntity<?> expenseReport(@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable("startDate") LocalDate startDate, 
+			@DateTimeFormat(pattern = "yyyy-MM-dd") @PathVariable("endDate") LocalDate endDate) {
+		List<ExpenseReportDTO> expenseReportDTOs = reportService.getExpenseReport(startDate, endDate);
+		return ResponseEntity.ok(expenseReportDTOs);
 	}
 	
 	
