@@ -13,9 +13,11 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.DecimalMin;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 @Entity
 @Table(name = "products", 
 uniqueConstraints = {@UniqueConstraint(columnNames = {"model_id","color_id"})})
