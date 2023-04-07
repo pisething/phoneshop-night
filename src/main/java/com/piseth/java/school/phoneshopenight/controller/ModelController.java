@@ -1,5 +1,7 @@
 package com.piseth.java.school.phoneshopenight.controller;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +23,7 @@ public class ModelController {
 	private final ModelEntityMapper modelMapper;
 	
 
+	@RolesAllowed("ROLE_ADMIN")
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody ModelDTO modelDTO){
 		Model model = modelMapper.toModel(modelDTO);
