@@ -13,21 +13,13 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")
+@Table(name = "roles")
 @Data
-public class User {
+public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String firstName;
-	private String lastName;
-	private String username;
-	private String password;
-	private boolean accountNonExpired;
-	private boolean accountNonLocked;
-	private boolean credentialsNonExpired;
-	private boolean enabled;
+	private String name;
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<Role> roles;
-
+	private Set<Permission> permissions;
 }
