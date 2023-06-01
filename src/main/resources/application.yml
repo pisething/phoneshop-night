@@ -15,4 +15,7 @@ spring:
   liquibase:
         change-log: classpath:db/changelog/db.changelog-master.yaml
         enabled: false
+app:
+  jwtSecret: ======================Piseth===========================
+  jwtExpirationMs: 86400000
 

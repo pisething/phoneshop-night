@@ -19,13 +19,13 @@ import org.springframework.security.web.SecurityFilterChain;
 import com.piseth.java.school.phoneshopenight.config.jwt.JwtLoginFilter;
 import com.piseth.java.school.phoneshopenight.config.jwt.TokenVerifyFilter;
 
-@Configuration
+//@Configuration
 @EnableGlobalMethodSecurity(
 		  prePostEnabled = true, 
 		  securedEnabled = true, 
 		  jsr250Enabled = true)
 public class SecurityConfig {
-	
+	/*
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Autowired
@@ -67,4 +67,5 @@ public class SecurityConfig {
 		authenticationProvider.setPasswordEncoder(passwordEncoder);
 		return authenticationProvider;
 	}
+	*/
 }
