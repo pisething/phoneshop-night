@@ -15,7 +15,8 @@ import static com.piseth.java.school.phoneshopenight.config.security.PermissionE
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum RoleEnum {
 	ADMIN(Set.of(BRAND_WRITE, BRAND_READ, MODEL_WRITE, MODEL_READ)),
-	SALE(Set.of(BRAND_READ, MODEL_READ));
+	SALE(Set.of(BRAND_READ, MODEL_READ)),
+	USER(Set.of());
 	
 	private Set<PermissionEnum> permissions;
 	
