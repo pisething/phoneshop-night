@@ -1,0 +1,15 @@
+databaseChangeLog:
+- changeSet:
+    id: 005_insert_roles_permissions
+    author: piseth.ing2022@gmail.com
+    changes:
+    - loadData:
+        tableName: roles_permissions
+        columns:
+        - column:
+            name: role_id
+            type: NUMERIC
+        - column:
+            name: permissions_id
+            type: NUMERIC
+        file: db/data/005_roles_permissions.csv

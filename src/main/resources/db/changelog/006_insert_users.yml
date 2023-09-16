@@ -1,0 +1,39 @@
+databaseChangeLog:
+- changeSet:
+    id: 006_insert_users
+    author: piseth.ing2022@gmail.com
+    changes:
+    - loadData:
+        tableName: users
+        columns:
+        - column:
+            name: id
+            type: NUMERIC
+        - column:
+            name: first_name
+            type: STRING
+        - column:
+            name: last_name
+            type: STRING
+        - column:
+            name: username
+            type: STRING
+        - column:
+            name: password
+            type: STRING
+        - column:
+            name: email
+            type: STRING
+        - column:
+            name: account_non_expired
+            type: BOOLEAN
+        - column:
+            name: account_non_locked
+            type: BOOLEAN
+        - column:
+            name: credentials_non_expired
+            type: BOOLEAN
+        - column:
+            name: enabled
+            type: BOOLEAN
+        file: db/data/006_users.csv

@@ -1,7 +1,7 @@
 databaseChangeLog:
 - changeSet:
     id: 001_init_db_structure
-    author: piseth.ing@gmail.com
+    author: piseth.ing2022@gmail.com
     changes:
     - createTable:
         tableName: brands
@@ -14,6 +14,18 @@ databaseChangeLog:
             type: BIGINT
         - column:
             name: brand_name
+            type: VARCHAR(50)
+    - createTable:
+        tableName: colors
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: color_id
+            type: BIGINT
+        - column:
+            name: color_name
             type: VARCHAR(50)
     - createTable:
         tableName: models
@@ -33,8 +45,195 @@ databaseChangeLog:
             constraints:
               - foreignKeyName: fk_models_brands
                 references: brands(brand_id)
-
-
-                
-                
- 
+    - createTable:
+        tableName: permission
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(50)
+    - createTable:
+        tableName: products
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(50)
+        - column:
+            name: image_path
+            type: VARCHAR(80)
+        - column:
+            name: available_unit
+            type: BIGINT
+        - column:
+            name: sale_price
+            type: DECIMAL
+        - column:
+            name: color_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_products_colors
+                references: colors(color_id)
+        - column:
+            name: model_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_products_models
+                references: models(id)
+    - createTable:
+        tableName: product_import_histories
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: import_id
+            type: BIGINT
+        - column:
+            name: date_import
+            type: DATETIME
+        - column:
+            name: image_path
+            type: VARCHAR(80)
+        - column:
+            name: import_unit
+            type: BIGINT
+        - column:
+            name: price_per_unit
+            type: DECIMAL
+        - column:
+            name: product_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_product_import_histories_products
+                references: products(id)
+    - createTable:
+        tableName: roles
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(50)
+    - createTable:
+        tableName: roles_permissions
+        columns:
+        - column:
+            name: role_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_roles_permissions_role
+                references: roles(id)
+        - column:
+            name: permissions_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_roles_permissions_permission
+                references: permission(id)
+    - createTable:
+        tableName: sales
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: sale_id
+            type: BIGINT
+        - column:
+            name: sold_date
+            type: DATE  
+        - column:
+            name: active
+            type: BOOLEAN 
+    - createTable:
+        tableName: sale_details
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: sale_detail_id
+            type: BIGINT
+        - column:
+            name: sold_amount
+            type: DECIMAL  
+        - column:
+            name: unit
+            type: BIGINT  
+        - column:
+            name: product_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_sale_details_products
+                references: products(id)
+        - column:
+            name: sale_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_sale_details_sales
+                references: sales(sale_id)           
+    - createTable:
+        tableName: users
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+            name: id
+            type: BIGINT
+        - column:
+            name: first_name
+            type: VARCHAR(50)  
+        - column:
+            name: last_name
+            type: VARCHAR(50)
+        - column:
+            name: username
+            type: VARCHAR(50)
+        - column:
+            name: password
+            type: VARCHAR(200)
+        - column:
+            name: email
+            type: VARCHAR(70)
+        - column:
+            name: account_non_expired
+            type: BOOLEAN  
+        - column:
+            name: account_non_locked
+            type: BOOLEAN  
+        - column:
+            name: credentials_non_expired
+            type: BOOLEAN  
+        - column:
+            name: enabled
+            type: BOOLEAN
+    - createTable:
+        tableName: users_roles
+        columns:
+        - column:
+            name: user_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_users_roles_users
+                references: users(id)
+        - column:
+            name: roles_id
+            type: BIGINT
+            constraints:
+              - foreignKeyName: fk_users_roles_role
+                references: roles(id)

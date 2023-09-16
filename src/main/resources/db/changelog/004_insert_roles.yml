@@ -1,15 +1,15 @@
 databaseChangeLog:
 - changeSet:
-    id: 002_insert_brands
+    id: 004_insert_roles
     author: piseth.ing2022@gmail.com
     changes:
     - loadData:
-        tableName: brands
+        tableName: roles
         columns:
         - column:
-            name: brand_id
+            name: id
             type: NUMERIC
         - column:
-            name: brand_name
+            name: name
             type: STRING
-        file: db/data/002_brands.csv
+        file: db/data/004_roles.csv

@@ -1,0 +1,7 @@
+id,name
+1,brand:write
+2,brand:read
+3,model:write
+4,model:read
+5,color:write
+6,color:read

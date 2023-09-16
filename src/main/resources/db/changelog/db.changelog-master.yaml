@@ -3,5 +3,13 @@ databaseChangeLog:
     - file: db/changelog/001_init_db_structure.yml
   - include:
     - file: db/changelog/002_insert_brands.yml
-    
-    
+  - include:
+    - file: db/changelog/003_insert_permissions.yml
+  - include:
+    - file: db/changelog/004_insert_roles.yml
+  - include:
+    - file: db/changelog/005_insert_roles_permissions.yml
+  - include:
+    - file: db/changelog/006_insert_users.yml
+  - include:
+    - file: db/changelog/007_insert_users_roles.yml
