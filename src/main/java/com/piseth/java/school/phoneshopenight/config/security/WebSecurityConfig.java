@@ -56,14 +56,15 @@ public class WebSecurityConfig {
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(auth -> 
 						auth.antMatchers("/api/auth/**").permitAll()
-						.antMatchers("/api/test/**").permitAll()
+						.antMatchers("/").permitAll()
+						.antMatchers("/swagger-ui/**","/swagger-ui.html","/webjars/**","/v2/**","/swagger-resources/**").permitAll()
 						.anyRequest().authenticated()
 				);
 
 		http.authenticationProvider(authenticationProvider());
 
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-
+		http.cors();
 		return http.build();
 	}
 
