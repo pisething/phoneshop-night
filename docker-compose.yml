@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=phoneshop_night
+      - POSTGRES_PASSWORD=phoneshop123
+      - POSTGRES_DB=phoneshop_night_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+
+  pg-admin:
+    image: dpage/pgadmin4:6
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=piseth.ing2022@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+
+    ports:
+      - "5050:5050"
+
+volumes:
+  data:
