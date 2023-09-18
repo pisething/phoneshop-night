@@ -13,3 +13,5 @@ databaseChangeLog:
     - file: db/changelog/006_insert_users.yml
   - include:
     - file: db/changelog/007_insert_users_roles.yml
+  - include:
+    - file: db/changelog/008_add_columns_to_brands_table.yml

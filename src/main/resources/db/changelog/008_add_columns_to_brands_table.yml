@@ -1,0 +1,20 @@
+databaseChangeLog:
+- changeSet:
+    id: 008_add_columns_to_brands_table
+    author: piseth.ing2022@gmail.com
+    changes:
+    - addColumn:
+        tableName: brands
+        columns:
+        - column:
+            name: date_create
+            type: DATETIME
+        - column:
+            name: date_update
+            type: DATETIME
+        - column:
+            name: user_create
+            type: VARCHAR(30)
+        - column:
+            name: user_update
+            type: VARCHAR(30)

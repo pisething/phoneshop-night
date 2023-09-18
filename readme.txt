@@ -1,5 +1,5 @@
 locate to docker-compose file
-run docker compose up
+run: docker compose up
 
 localhost:5050
 General Name: mypostgres
