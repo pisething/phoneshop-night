@@ -1,5 +1,7 @@
 package com.piseth.java.school.phoneshopenight.controller;
 
+import java.util.Arrays;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpHeaders;
@@ -28,6 +30,8 @@ public class AuthController {
 
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Authorization", "Bearer " + jwt);
+		responseHeaders.set("Access-Control-Expose-Headers", "Authorization");
+		
 		return ResponseEntity.ok().headers(responseHeaders).build();
 	}
 
