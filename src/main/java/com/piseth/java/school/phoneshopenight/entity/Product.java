@@ -13,10 +13,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.DecimalMin;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 @Builder
 @Entity
 @Table(name = "products", 
@@ -47,5 +49,9 @@ public class Product {
 	@DecimalMin(value = "0.000001", message = "Price must be greater than 0")
 	@Column(name = "sale_price")
 	private BigDecimal salePrice;
+	
+	public Product() {
+		
+	}
 
 }

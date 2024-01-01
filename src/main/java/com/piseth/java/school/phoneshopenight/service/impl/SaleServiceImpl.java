@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.piseth.java.school.phoneshopenight.dto.ProductSoldDTO;
 import com.piseth.java.school.phoneshopenight.dto.SaleDTO;
+import com.piseth.java.school.phoneshopenight.dto.SaleResponeDTO;
 import com.piseth.java.school.phoneshopenight.entity.Product;
 import com.piseth.java.school.phoneshopenight.entity.Sale;
 import com.piseth.java.school.phoneshopenight.entity.SaleDetail;
@@ -32,7 +33,7 @@ public class SaleServiceImpl implements SaleService{
 	private final SaleDetailRepository saleDetailRepository;
 
 	@Override
-	public void sell(SaleDTO saleDTO) {
+	public SaleResponeDTO sell(SaleDTO saleDTO) {
 		
 		List<Long> productIds = saleDTO.getProducts().stream()
 				.map(ProductSoldDTO::getProductId)
@@ -74,6 +75,10 @@ public class SaleServiceImpl implements SaleService{
 			product.setAvailableUnit(availableUnit);
 			productRepository.save(product);
 		});
+		
+		SaleResponeDTO responeDTO = new SaleResponeDTO();
+		responeDTO.setSaleId(sale.getId());
+		return responeDTO;
 	}
 	
 	

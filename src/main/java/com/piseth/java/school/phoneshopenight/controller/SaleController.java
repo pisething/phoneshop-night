@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.piseth.java.school.phoneshopenight.dto.SaleDTO;
+import com.piseth.java.school.phoneshopenight.dto.SaleResponeDTO;
 import com.piseth.java.school.phoneshopenight.service.SaleService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,8 +23,8 @@ public class SaleController {
 
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody SaleDTO saleDTO) {
-		saleService.sell(saleDTO);
-		return ResponseEntity.ok().build();
+		SaleResponeDTO saleResponeDTO = saleService.sell(saleDTO);
+		return ResponseEntity.ok(saleResponeDTO);
 	}
 	
 	@PutMapping("{saleId}/cancel")
